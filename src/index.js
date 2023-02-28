@@ -2,12 +2,13 @@
  * @file index.js
  */
 
+// Vendors
 import {useSelector, useStore} from 'react-redux';
 
 /**
  * A hook to access the vivy store's state.
  * @param nameSpace
- * @returns {(*)[]}
+ * @returns {*}
  */
 export function useModelState(nameSpace) {
     return useSelector(state => state[nameSpace]);
@@ -16,7 +17,7 @@ export function useModelState(nameSpace) {
 /**
  * A hook to access the vivy store's actions and reducers.
  * @param nameSpace
- * @returns {(*)[]}
+ * @returns {{}}
  */
 export function useModelActions(nameSpace) {
     return useStore()?.dispatch?.[nameSpace];
@@ -25,7 +26,7 @@ export function useModelActions(nameSpace) {
 /**
  * A hook to access the vivy store's state, actions and reducers.
  * @param nameSpace
- * @returns {(*)[]}
+ * @returns {[]}
  */
 export function useModel(nameSpace) {
     return [
