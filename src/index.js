@@ -35,4 +35,15 @@ export function useModel(nameSpace) {
     ];
 }
 
+/**
+ * A hook to access the vivy store's global reducers.
+ * @returns {{}}
+ */
+export function useGlobalReducers() {
+    const dispatch = useDispatch();
+    return Object.fromEntries(Object.entries(dispatch).filter(([key, value]) =>
+        dispatch.hasOwnProperty(key) && typeof value === 'function'
+    ));
+}
+
 export * from 'react-redux';
