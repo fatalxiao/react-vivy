@@ -3,7 +3,7 @@
  */
 
 // Vendors
-import {useSelector, useStore} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 
 /**
  * A hook to access the vivy store's state.
@@ -20,7 +20,7 @@ export function useModelState(nameSpace) {
  * @returns {{}}
  */
 export function useModelActions(nameSpace) {
-    return useStore()?.dispatch?.[nameSpace];
+    return useDispatch()?.[nameSpace];
 }
 
 /**
