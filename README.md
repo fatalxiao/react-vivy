@@ -27,6 +27,7 @@ React bindings for [Vivy][vivy-url] based on [react-redux][react-redux-url].
     * [Complete and real project example](#complete-and-real-project-example)
 * [Documentation](#documentation)
     * [Basic usage](#basic-usage)
+    * [Hooks](#hooks)
 
 ## Installation
 
@@ -82,4 +83,42 @@ const App = () => {
 };
 
 export default App;
+```
+
+### Hooks
+
+#### useModel
+
+```js
+import {useModel} from 'react-vivy';
+
+// Get model state, actions and reducers
+const [modelState, modelActions] = useModel('MODEL_NAME_SPACE');
+```
+
+#### useModelState
+
+```js
+import {useModelState} from 'react-vivy';
+
+// Get model state
+const modelState = useModelState('MODEL_NAME_SPACE');
+```
+
+#### useModelActions
+
+```js
+import {useModelActions} from 'react-vivy';
+
+// Get model actions and reducers
+const modelActions = useModelActions('MODEL_NAME_SPACE');
+```
+
+#### useGlobalReducers
+
+```js
+import {useGlobalReducers} from 'react-vivy';
+
+// Get all global reducers
+const globalReducers = useGlobalReducers();
 ```
