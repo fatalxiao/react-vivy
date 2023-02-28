@@ -14,7 +14,6 @@
 
 # react-vivy
 
-
 [![NPM Version][npm-image]][npm-url]
 [![License][license-image]][npm-url]
 
