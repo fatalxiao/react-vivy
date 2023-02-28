@@ -1,7 +1,7 @@
 {
     "name": "react-vivy",
     "author": "liangxiaojun",
-    "version": "0.0.4",
+    "version": "1.0.0",
     "description": "React bindings for Vivy based on react-redux",
     "main": "./dist/index.js",
     "files": [
