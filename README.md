@@ -17,7 +17,8 @@
 [![NPM Version][npm-image]][npm-url]
 [![License][license-image]][npm-url]
 
-React bindings for [Vivy][vivy-url] based on [react-redux][react-redux-url].
+React bindings for [Vivy][vivy-url] based on [react-redux][react-redux-url]. It exports all components and hooks
+from [react-redux][react-redux-url], and also exports the custom hooks for [Vivy][vivy-url].
 
 ## Docs
 
