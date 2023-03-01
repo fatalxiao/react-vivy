@@ -6,33 +6,16 @@ import React from 'react';
 import {useModel} from 'react-vivy';
 
 const wrapperStyle = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
     display: 'flex',
+    width: 200,
     flexDirection: 'column',
-    alignItems: 'flex-end',
-    transform: 'translate(-50%, -50%)',
-    fontSize: 24,
-    lineHeight: '64px'
-};
-
-const rowStyle = {
-    display: 'flex',
-    justifyItems: 'flex-end',
-    alignItems: 'center'
+    alignItems: 'flex-end'
 };
 
 const inputStyle = {
-    boxSizing: 'border-box',
-    width: 160,
-    height: 64,
     padding: 8,
-    border: '1px solid #ccc',
-    borderRadius: 8,
-    margin: '8px 0 8px 16px',
-    textAlign: 'right',
-    fontSize: 24
+    margin: 8,
+    textAlign: 'right'
 };
 
 const hrStyle = {
@@ -50,14 +33,14 @@ const Calculation = () => {
 
     return (
         <div style={wrapperStyle}>
-            <div style={rowStyle}>
+            <div>
                 <input style={inputStyle}
                        value={value1}
                        onChange={e => updateValue1?.({
                            value: +e?.target?.value
                        })}/>
             </div>
-            <div style={rowStyle}>
+            <div>
                 +
                 <input style={inputStyle}
                        value={value2}
@@ -66,9 +49,7 @@ const Calculation = () => {
                        })}/>
             </div>
             <hr style={hrStyle}/>
-            <div className="row">
-                {value1 + value2}
-            </div>
+            {value1 + value2}
         </div>
     );
 
