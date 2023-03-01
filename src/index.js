@@ -6,29 +6,51 @@
 import {useSelector, useDispatch} from 'react-redux';
 
 /**
+ * Get model nameSpace
+ * @param modelOrNameSpace
+ * @returns {{nameSpace}|*}
+ */
+function getModelNameSpace(modelOrNameSpace) {
+
+    if (
+        typeof modelOrNameSpace === 'object'
+        && modelOrNameSpace?.hasOwnProperty('nameSpace')
+        && typeof modelOrNameSpace?.nameSpace === 'string'
+    ) {
+        return modelOrNameSpace.nameSpace;
+    }
+
+    return modelOrNameSpace;
+
+}
+
+/**
  * A hook to access the vivy store's state.
- * @param nameSpace
+ * @param modelOrNameSpace
  * @returns {*}
  */
-export function useModelState(nameSpace) {
+export function useModelState(modelOrNameSpace) {
+    const nameSpace = getModelNameSpace(modelOrNameSpace);
     return useSelector(state => state[nameSpace]);
 }
 
 /**
  * A hook to access the vivy store's actions and reducers.
- * @param nameSpace
+ * @param modelOrNameSpace
  * @returns {{}}
  */
-export function useModelActions(nameSpace) {
+export function useModelActions(modelOrNameSpace) {
+    const nameSpace = getModelNameSpace(modelOrNameSpace);
     return useDispatch()?.[nameSpace];
 }
 
 /**
  * A hook to access the vivy store's state, actions and reducers.
- * @param nameSpace
+ * @param modelOrNameSpace
  * @returns {[]}
  */
-export function useModel(nameSpace) {
+export function useModel(modelOrNameSpace) {
+    const nameSpace = getModelNameSpace(modelOrNameSpace);
     return [
         useModelState(nameSpace),
         useModelActions(nameSpace)
