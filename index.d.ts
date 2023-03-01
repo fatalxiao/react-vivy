@@ -1,12 +1,6 @@
 export * from 'react-redux';
 
 /**
- * A hook to access the vivy store's state.
- * @param nameSpace
- */
-export function useModelState(nameSpace?: string): any
-
-/**
  * The action or reducer of Vivy model.
  */
 export type VivyModelAction = Function
@@ -31,16 +25,22 @@ export interface VivyGlobalReducers {
 }
 
 /**
- * A hook to access the vivy store's actions and reducers.
- * @param nameSpace
+ * A hook to access the vivy store's state.
+ * @param modelOrNameSpace
  */
-export function useModelActions(nameSpace?: string): VivyModelActions
+export function useModelState(modelOrNameSpace?: string | object): any
+
+/**
+ * A hook to access the vivy store's actions and reducers.
+ * @param modelOrNameSpace
+ */
+export function useModelActions(modelOrNameSpace?: string | object): VivyModelActions
 
 /**
  * A hook to access the vivy store's state, actions and reducers.
- * @param nameSpace
+ * @param modelOrNameSpace
  */
-export function useModel(nameSpace?: string): [any, VivyModelActions]
+export function useModel(modelOrNameSpace?: string | object): [any, VivyModelActions]
 
 /**
  * A hook to access the vivy store's global reducers.
