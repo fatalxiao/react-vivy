@@ -27,9 +27,7 @@ const Calculation = () => {
     /**
      * Get state and reducer from model "calculation" using hook "useModel".
      */
-    const [calculationState, calculationActions] = useModel('calculation');
-    const {value1, value2} = calculationState;
-    const {updateValue1, updateValue2} = calculationActions;
+    const [{value1, value2}, {updateValue1, updateValue2}] = useModel('calculation');
 
     return (
         <div style={wrapperStyle}>
