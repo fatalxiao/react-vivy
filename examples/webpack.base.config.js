@@ -9,7 +9,7 @@ module.exports = {
     devtool: 'inline-source-map',
 
     resolve: {
-        extensions: ['.js', '.scss']
+        extensions: ['.js']
     },
 
     module: {
