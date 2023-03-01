@@ -2,7 +2,7 @@
  * @file Actions.js
  */
 
-import React, {useCallback} from 'react';
+import React from 'react';
 import {useModelActions} from 'react-vivy';
 
 const Actions = () => {
@@ -12,20 +12,10 @@ const Actions = () => {
      */
     const {add} = useModelActions('todoList');
 
-    /**
-     * Handle add item
-     * @type {(function(): void)|*}
-     */
-    const handleAdd = useCallback(() => {
-        add?.({
-            item: 'New item'
-        });
-    }, [
-        add
-    ]);
-
     return (
-        <button onClick={handleAdd}>
+        <button onClick={() => add?.({
+            item: 'New item'
+        })}>
             Add
         </button>
     );
