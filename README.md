@@ -67,13 +67,16 @@ import {useModel} from 'react-vivy';
 
 const App = () => {
 
-    // Get model state, actions and reducers
+    // Get model state, actions and reducers using hook "useModel".
     const [modelState, modelActions] = useModel('MODEL_NAME_SPACE');
+    // "useModel" can also accept a model as an argument.
+    // import model from 'MODEL_PATH';
+    // const [modelState, modelActions] = useModel(model);
 
-    // Get some value from modelState
+    // Get some value from modelState.
     const {value} = modelState;
 
-    // Get some actions or reducers from modelActions
+    // Get some actions or reducers from modelActions.
     const {updateValue} = modelActions;
 
     return (
@@ -94,7 +97,7 @@ export default App;
 import {useModel} from 'react-vivy';
 
 // Get model state, actions and reducers
-const [modelState, modelActions] = useModel('MODEL_NAME_SPACE');
+const [modelState, modelActions] = useModel('MODEL_OR_NAME_SPACE');
 ```
 
 #### useModelState
@@ -103,7 +106,7 @@ const [modelState, modelActions] = useModel('MODEL_NAME_SPACE');
 import {useModelState} from 'react-vivy';
 
 // Get model state
-const modelState = useModelState('MODEL_NAME_SPACE');
+const modelState = useModelState('MODEL_OR_NAME_SPACE');
 ```
 
 #### useModelActions
@@ -112,7 +115,7 @@ const modelState = useModelState('MODEL_NAME_SPACE');
 import {useModelActions} from 'react-vivy';
 
 // Get model actions and reducers
-const modelActions = useModelActions('MODEL_NAME_SPACE');
+const modelActions = useModelActions('MODEL_OR_NAME_SPACE');
 ```
 
 #### useGlobalReducers
