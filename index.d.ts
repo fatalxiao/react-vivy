@@ -28,19 +28,19 @@ export interface VivyGlobalReducers {
  * A hook to access the vivy store's state.
  * @param arg
  */
-export function useModelState(arg?: Function | string | object): any
+export function useModelState(arg?: string | object | Function): any
 
 /**
  * A hook to access the vivy store's actions and reducers.
  * @param arg
  */
-export function useModelActions(arg?: Function | string | object): VivyModelActions
+export function useModelActions(arg?: string | object | Function): VivyModelActions
 
 /**
  * A hook to access the vivy store's state, actions and reducers.
  * @param arg
  */
-export function useModel(arg?: Function | string | object): [any, VivyModelActions]
+export function useModel(arg?: string | object | Function): [any, VivyModelActions]
 
 /**
  * A hook to access the vivy store's global reducers.
