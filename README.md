@@ -99,9 +99,9 @@ export default App;
 
 ### Hooks
 
-#### useModel
+#### `useModel`
 
-1. By model name space
+1. Get model by model name space
 
 ```js
 import {useModel} from 'react-vivy';
@@ -110,7 +110,7 @@ import {useModel} from 'react-vivy';
 const [modelState, modelActions] = useModel('YOUR_MODEL_NAME_SPACE');
 ```
 
-2. By model
+2. Get model by model
 
 ```js
 import {useModel} from 'react-vivy';
@@ -120,7 +120,7 @@ import model from 'path_to_your_model';
 const [modelState, modelActions] = useModel(model);
 ```
 
-3. By callback function
+3. Get model by callback function
 
 ```js
 import {useModel} from 'react-vivy';
@@ -129,9 +129,9 @@ import {useModel} from 'react-vivy';
 const [modelState, modelActions] = useModel(state => state.your_model_name_space);
 ```
 
-#### useModelState
+#### `useModelState`
 
-1. By model name space
+1. Get model state by model name space
 
 ```js
 import {useModelState} from 'react-vivy';
@@ -140,7 +140,7 @@ import {useModelState} from 'react-vivy';
 const modelState = useModelState('YOUR_MODEL_NAME_SPACE');
 ```
 
-2. By model
+2. Get model state by model
 
 ```js
 import {useModelState} from 'react-vivy';
@@ -150,7 +150,7 @@ import model from 'path_to_your_model';
 const modelState = useModelState(model);
 ```
 
-3. By callback function
+3. Get model state by callback function
 
 ```js
 import {useModelState} from 'react-vivy';
@@ -159,9 +159,9 @@ import {useModelState} from 'react-vivy';
 const modelState = useModelState(state => state.your_model_name_space);
 ```
 
-#### useModelActions
+#### `useModelActions`
 
-1. By model name space
+1. Get model actions by model name space
 
 ```js
 import {useModelActions} from 'react-vivy';
@@ -170,7 +170,7 @@ import {useModelActions} from 'react-vivy';
 const modelActions = useModelActions('YOUR_MODEL_NAME_SPACE');
 ```
 
-2. By model
+2. Get model actions by model
 
 ```js
 import {useModelActions} from 'react-vivy';
@@ -180,7 +180,7 @@ import model from 'path_to_your_model';
 const modelActions = useModelActions(model);
 ```
 
-3. By callback function
+3. Get model actions by callback function
 
 ```js
 import {useModelActions} from 'react-vivy';
@@ -189,7 +189,7 @@ import {useModelActions} from 'react-vivy';
 const modelActions = useModelActions(state => state.your_model_name_space);
 ```
 
-#### useGlobalReducers
+#### `useGlobalReducers`
 
 ```js
 import {useGlobalReducers} from 'react-vivy';
