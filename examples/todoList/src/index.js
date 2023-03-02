@@ -11,7 +11,7 @@ import Vivy from 'vivy';
 
 // Component and model
 import Root from './components/Root';
-import todoListModel from './model/todoListModel';
+import todoListModel from './model/todoList';
 
 // Create vivy
 const vivy = Vivy();
