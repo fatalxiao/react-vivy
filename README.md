@@ -29,6 +29,10 @@ from [react-redux][react-redux-url], and also exports the custom hooks for [Vivy
 * [Documentation](#documentation)
     * [Basic usage](#basic-usage)
     * [Hooks](#hooks)
+        * [useModel](#useModel)
+        * [useModelState](#useModelState)
+        * [useModelActions](#useModelActions)
+        * [useGlobalReducers](#useGlobalReducers)
 
 ## Installation
 
@@ -93,29 +97,92 @@ export default App;
 
 #### useModel
 
+1. By model name space
+
 ```js
 import {useModel} from 'react-vivy';
 
 // Get model state, actions and reducers
-const [modelState, modelActions] = useModel('MODEL_OR_NAME_SPACE');
+const [modelState, modelActions] = useModel('YOUR_MODEL_NAME_SPACE');
+```
+
+2. By model
+
+```js
+import {useModel} from 'react-vivy';
+import model from 'path_to_your_model';
+
+// Get model state, actions and reducers
+const [modelState, modelActions] = useModel(model);
+```
+
+3. By callback function
+
+```js
+import {useModel} from 'react-vivy';
+
+// Get model state, actions and reducers
+const [modelState, modelActions] = useModel(state => state.your_model_name_space);
 ```
 
 #### useModelState
+
+1. By model name space
 
 ```js
 import {useModelState} from 'react-vivy';
 
 // Get model state
-const modelState = useModelState('MODEL_OR_NAME_SPACE');
+const modelState = useModelState('YOUR_MODEL_NAME_SPACE');
+```
+
+2. By model
+
+```js
+import {useModelState} from 'react-vivy';
+import model from 'path_to_your_model';
+
+// Get model state
+const modelState = useModelState(model);
+```
+
+3. By callback function
+
+```js
+import {useModelState} from 'react-vivy';
+
+// Get model state
+const modelState = useModelState(state => state.your_model_name_space);
 ```
 
 #### useModelActions
+
+1. By model name space
 
 ```js
 import {useModelActions} from 'react-vivy';
 
 // Get model actions and reducers
-const modelActions = useModelActions('MODEL_OR_NAME_SPACE');
+const modelActions = useModelActions('YOUR_MODEL_NAME_SPACE');
+```
+
+2. By model
+
+```js
+import {useModelActions} from 'react-vivy';
+import model from 'path_to_your_model';
+
+// Get model actions and reducers
+const modelActions = useModelActions(model);
+```
+
+3. By callback function
+
+```js
+import {useModelActions} from 'react-vivy';
+
+// Get model actions and reducers
+const modelActions = useModelActions(state => state.your_model_name_space);
 ```
 
 #### useGlobalReducers
