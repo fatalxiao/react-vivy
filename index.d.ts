@@ -26,21 +26,21 @@ export interface VivyGlobalReducers {
 
 /**
  * A hook to access the vivy store's state.
- * @param modelOrNameSpace
+ * @param arg
  */
-export function useModelState(modelOrNameSpace?: string | object): any
+export function useModelState(arg?: Function | string | object): any
 
 /**
  * A hook to access the vivy store's actions and reducers.
- * @param modelOrNameSpace
+ * @param arg
  */
-export function useModelActions(modelOrNameSpace?: string | object): VivyModelActions
+export function useModelActions(arg?: Function | string | object): VivyModelActions
 
 /**
  * A hook to access the vivy store's state, actions and reducers.
- * @param modelOrNameSpace
+ * @param arg
  */
-export function useModel(modelOrNameSpace?: string | object): [any, VivyModelActions]
+export function useModel(arg?: Function | string | object): [any, VivyModelActions]
 
 /**
  * A hook to access the vivy store's global reducers.
