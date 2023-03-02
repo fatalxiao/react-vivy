@@ -72,10 +72,14 @@ import {useModel} from 'react-vivy';
 const App = () => {
 
     // Get model state, actions and reducers using hook "useModel".
-    const [modelState, modelActions] = useModel('MODEL_NAME_SPACE');
+    const [modelState, modelActions] = useModel('YOUR_MODEL_NAME_SPACE');
+
     // "useModel" can also accept a model as an argument.
-    // import model from 'MODEL_PATH';
+    // import model from 'path_to_your_model';
     // const [modelState, modelActions] = useModel(model);
+
+    // "useModel" can also accept a function as an argument.
+    // const [modelState, modelActions] = useModel(state => state.your_model_name_space);
 
     // Get some value from modelState.
     const {value} = modelState;
