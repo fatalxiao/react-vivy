@@ -25,6 +25,11 @@ export interface VivyGlobalReducers {
 }
 
 /**
+ * A hook to access all vivy store's state.
+ */
+export function useStoreState(): any
+
+/**
  * A hook to access the vivy store's state.
  * @param arg
  */

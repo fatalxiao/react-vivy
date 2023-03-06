@@ -25,6 +25,14 @@ export function _parseModelNameSpace(modelOrNameSpace) {
 }
 
 /**
+ * A hook to access all vivy store's state.
+ * @returns {*}
+ */
+export function useStoreState() {
+    return useSelector(state => state);
+}
+
+/**
  * A hook to access the vivy store's state.
  * @param arg
  * @returns {*}
