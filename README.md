@@ -10,7 +10,7 @@
 
 [calculation-example-url]: https://github.com/fatalxiao/react-vivy/tree/main/examples/calculation
 
-[pieb-with-dpe-frontend-url]: https://github.com/fatalxiao/pieb-with-dpe-frontend
+[labor-analgesia-frontend-url]: https://github.com/fatalxiao/labor-analgesia-frontend
 
 # react-vivy
 
@@ -30,6 +30,7 @@ from [react-redux][react-redux-url], and also exports the custom hooks for [Vivy
     * [Basic usage](#basic-usage)
     * [Hooks](#hooks)
         * [useModel](#useModel)
+        * [useStoreState](#useStoreState)
         * [useModelState](#useModelState)
         * [useModelActions](#useModelActions)
         * [useGlobalReducers](#useGlobalReducers)
@@ -57,7 +58,7 @@ $ npm run start
 
 ### Complete and real project example
 
-* [pieb-with-dpe-frontend][pieb-with-dpe-frontend-url]
+* [labor-analgesia-frontend][labor-analgesia-frontend-url]
 
 ## Documentation
 
@@ -127,6 +128,15 @@ import {useModel} from 'react-vivy';
 
 // Get model state, actions and reducers
 const [modelState, modelActions] = useModel(state => state.your_model_name_space);
+```
+
+#### `useStoreState`
+
+```js
+import {useStoreState} from 'react-vivy';
+
+// Get store state
+const storeState = useStoreState();
 ```
 
 #### `useModelState`
