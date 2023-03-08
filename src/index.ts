@@ -1,26 +1,29 @@
 /**
- * @file index.js
+ * @file index.ts
+ * @author Liangxiaojun
  */
 
 // Vendors
 import {useSelector, useDispatch} from 'react-redux';
 
+// Types
+import {VivyModel, VivyStoreDispatch} from 'vivy'
+
 /**
  * Parse model nameSpace
- * @param modelOrNameSpace
- * @returns {{nameSpace}|*}
+ * @param nameSpaceOrModel
  */
-export function _parseModelNameSpace(modelOrNameSpace) {
+export function _parseModelNameSpace(nameSpaceOrModel: string | VivyModel): string {
 
     if (
-        typeof modelOrNameSpace === 'object'
-        && modelOrNameSpace?.hasOwnProperty('nameSpace')
-        && typeof modelOrNameSpace?.nameSpace === 'string'
+        typeof nameSpaceOrModel === 'object'
+        && nameSpaceOrModel?.hasOwnProperty('nameSpace')
+        && typeof nameSpaceOrModel?.nameSpace === 'string'
     ) {
-        return modelOrNameSpace.nameSpace;
+        return nameSpaceOrModel.nameSpace;
     }
 
-    return modelOrNameSpace;
+    return nameSpaceOrModel as string;
 
 }
 
@@ -35,16 +38,15 @@ export function useStoreState() {
 /**
  * A hook to access the vivy store's state.
  * @param arg
- * @returns {*}
  */
-export function useModelState(arg) {
+export function useModelState(arg: string | VivyModel | ((state: any) => any)) {
 
     if (typeof arg === 'function') {
         return useSelector(arg);
     }
 
     const nameSpace = _parseModelNameSpace(arg);
-    return useSelector(state => state[nameSpace]);
+    return useSelector(state => state?.[nameSpace]);
 
 }
 
@@ -53,7 +55,7 @@ export function useModelState(arg) {
  * @param arg
  * @returns {{}}
  */
-export function useModelActions(arg) {
+export function useModelActions(arg: string | VivyModel | ((dispatch: VivyStoreDispatch) => any)) {
 
     if (typeof arg === 'function') {
         return arg(useDispatch());
@@ -67,9 +69,8 @@ export function useModelActions(arg) {
 /**
  * A hook to access the vivy store's state, actions and reducers.
  * @param arg
- * @returns {[]}
  */
-export function useModel(arg) {
+export function useModel(arg: string | VivyModel) {
     return [
         useModelState(arg),
         useModelActions(arg)
@@ -78,7 +79,6 @@ export function useModel(arg) {
 
 /**
  * A hook to access the vivy store's global reducers.
- * @returns {{}}
  */
 export function useGlobalReducers() {
     const dispatch = useDispatch();
