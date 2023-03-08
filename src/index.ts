@@ -9,6 +9,8 @@ import {useSelector, useDispatch} from 'react-redux';
 // Types
 import {VivyModel, VivyStoreDispatch} from 'vivy'
 
+export * from 'react-redux';
+
 /**
  * Parse model nameSpace
  * @param nameSpaceOrModel
@@ -86,5 +88,3 @@ export function useGlobalReducers() {
         dispatch.hasOwnProperty(key) && typeof value === 'function'
     ));
 }
-
-export * from 'react-redux';
