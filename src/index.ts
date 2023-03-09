@@ -7,7 +7,7 @@
 import {useSelector, useDispatch} from 'react-redux';
 
 // Types
-import {VivyModel, VivyStoreDispatch} from 'vivy'
+import {VivyModel, VivyStoreDispatch, ModelActionCreatorFunctionMapObject} from 'vivy'
 
 export * from 'react-redux';
 
@@ -55,7 +55,9 @@ export function useModelState(arg: string | VivyModel | ((state: any) => any)): 
  * A hook to access the vivy store's actions and reducers.
  * @param arg
  */
-export function useModelActions(arg: string | VivyModel | ((dispatch: VivyStoreDispatch) => any)): object {
+export function useModelActions(
+    arg: string | VivyModel | ((dispatch: VivyStoreDispatch) => any)
+): ModelActionCreatorFunctionMapObject {
 
     if (typeof arg === 'function') {
         return arg(useDispatch());
@@ -70,7 +72,7 @@ export function useModelActions(arg: string | VivyModel | ((dispatch: VivyStoreD
  * A hook to access the vivy store's state, actions and reducers.
  * @param arg
  */
-export function useModel(arg: string | VivyModel): [any, object] {
+export function useModel(arg: string | VivyModel): [any, ModelActionCreatorFunctionMapObject] {
     return [
         useModelState(arg),
         useModelActions(arg)
@@ -80,7 +82,7 @@ export function useModel(arg: string | VivyModel): [any, object] {
 /**
  * A hook to access the vivy store's global reducers.
  */
-export function useGlobalReducers(): object {
+export function useGlobalReducers(): ModelActionCreatorFunctionMapObject {
     const dispatch = useDispatch();
     return Object.fromEntries(Object.entries(dispatch).filter(([key, value]) =>
         dispatch.hasOwnProperty(key) && typeof value === 'function'
