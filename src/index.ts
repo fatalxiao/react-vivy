@@ -31,9 +31,8 @@ export function _parseModelNameSpace(nameSpaceOrModel: string | VivyModel): stri
 
 /**
  * A hook to access all vivy store's state.
- * @returns {*}
  */
-export function useStoreState() {
+export function useStoreState(): any {
     return useSelector(state => state);
 }
 
@@ -41,7 +40,7 @@ export function useStoreState() {
  * A hook to access the vivy store's state.
  * @param arg
  */
-export function useModelState(arg: string | VivyModel | ((state: any) => any)) {
+export function useModelState(arg: string | VivyModel | ((state: any) => any)): any {
 
     if (typeof arg === 'function') {
         return useSelector(arg);
@@ -55,9 +54,8 @@ export function useModelState(arg: string | VivyModel | ((state: any) => any)) {
 /**
  * A hook to access the vivy store's actions and reducers.
  * @param arg
- * @returns {{}}
  */
-export function useModelActions(arg: string | VivyModel | ((dispatch: VivyStoreDispatch) => any)) {
+export function useModelActions(arg: string | VivyModel | ((dispatch: VivyStoreDispatch) => any)): object {
 
     if (typeof arg === 'function') {
         return arg(useDispatch());
@@ -72,7 +70,7 @@ export function useModelActions(arg: string | VivyModel | ((dispatch: VivyStoreD
  * A hook to access the vivy store's state, actions and reducers.
  * @param arg
  */
-export function useModel(arg: string | VivyModel) {
+export function useModel(arg: string | VivyModel): [any, object] {
     return [
         useModelState(arg),
         useModelActions(arg)
@@ -82,7 +80,7 @@ export function useModel(arg: string | VivyModel) {
 /**
  * A hook to access the vivy store's global reducers.
  */
-export function useGlobalReducers() {
+export function useGlobalReducers(): object {
     const dispatch = useDispatch();
     return Object.fromEntries(Object.entries(dispatch).filter(([key, value]) =>
         dispatch.hasOwnProperty(key) && typeof value === 'function'
