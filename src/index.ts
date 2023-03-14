@@ -17,7 +17,7 @@ export * from './types';
  * Parse model nameSpace
  * @param nameSpaceOrModel
  */
-export function _parseModelNameSpace(nameSpaceOrModel: string | VivyModel): string {
+export function _parseModelNameSpace(nameSpaceOrModel: string | VivyModel<any>): string {
 
     if (
         typeof nameSpaceOrModel === 'object'
@@ -42,7 +42,7 @@ export function useStoreState(): any {
  * A hook to access the vivy store's state.
  * @param arg
  */
-export function useModelState(arg: string | VivyModel | ((state: any) => any)): any {
+export function useModelState(arg: string | VivyModel<any> | ((state: any) => any)): any {
 
     if (typeof arg === 'function') {
         return useSelector(arg);
@@ -58,7 +58,7 @@ export function useModelState(arg: string | VivyModel | ((state: any) => any)): 
  * @param arg
  */
 export function useModelActions(
-    arg: string | VivyModel | ((dispatch: VivyStoreDispatch) => any)
+    arg: string | VivyModel<any> | ((dispatch: VivyStoreDispatch) => any)
 ): DispatcherMapObject {
 
     if (typeof arg === 'function') {
@@ -74,7 +74,7 @@ export function useModelActions(
  * A hook to access the vivy store's state, actions and reducers.
  * @param arg
  */
-export function useModel(arg: string | VivyModel): [any, DispatcherMapObject] {
+export function useModel(arg: string | VivyModel<any>): [any, DispatcherMapObject] {
     return [
         useModelState(arg),
         useModelActions(arg)
