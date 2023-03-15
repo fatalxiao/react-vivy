@@ -1,6 +1,10 @@
 {
     "upgrade": true,
     "reject": [
-        "react-redux"
+        "react-redux",
+        "@types/react",
+        "@types/react-dom",
+        "react",
+        "react-dom"
     ]
 }
