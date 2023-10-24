@@ -3,14 +3,14 @@
  */
 
 import React from 'react';
-import {useModelActions} from 'react-vivy';
+import {useModel} from 'react-vivy';
 
 const Actions = () => {
 
     /**
      * Get reducer from model "todoList" using hook "useModelActions".
      */
-    const {add} = useModelActions('todoList');
+    const {add} = useModel('todoList');
 
     return (
         <button onClick={() => add?.({

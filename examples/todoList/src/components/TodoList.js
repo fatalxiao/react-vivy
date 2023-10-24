@@ -10,7 +10,7 @@ const TodoList = () => {
     /**
      * Get state and reducer from model "todoList" using hook "useModel".
      */
-    const [{list}, {updateItem, remove}] = useModel('todoList');
+    const {list, updateItem, remove} = useModel('todoList');
 
     console.log('list::', list);
 
