@@ -2,7 +2,7 @@
     "compilerOptions": {
         "outDir": "es",
         "module": "esnext",
-        "target": "es5",
+        "target": "esnext",
         "lib": [
             "es5",
             "esnext",
