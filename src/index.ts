@@ -75,10 +75,27 @@ export function useModelActions(
  * @param arg
  */
 export function useModel(arg: string | VivyModel<any>): [any, DispatcherMapObject] {
-    return [
-        useModelState(arg),
-        useModelActions(arg)
-    ];
+
+    const modelState = useModelState(arg);
+    const modelAction = useModelActions(arg);
+
+    return {
+        length: 2,
+        [Symbol.iterator]: function () {
+            let i = -1;
+            return {
+                next: () => ({
+                    value: this[++i],
+                    done: i === this.length
+                })
+            };
+        },
+        ...modelState,
+        ...modelAction,
+        0: modelState,
+        1: modelAction
+    };
+
 }
 
 /**
