@@ -74,9 +74,9 @@ export function useModelActions(
  * A hook to access the vivy store's state, actions and reducers.
  * @param arg
  */
-export function useModel(arg: string | VivyModel<any>): {
+export function useModel<S>(arg: string | VivyModel<any>): {
     length: number;
-    0: any;
+    0: S;
     1: DispatcherMapObject;
     [Symbol.iterator](): IterableIterator<any>;
     [key: string]: any;
